@@ -1,53 +1,76 @@
-# Next.js & HeroUI Template
+# 赛博算命 (Cyber Fortune Telling)
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+一个现代化的在线算命应用，结合人工智能技术，为用户提供个性化的运势分析和建议。
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+![赛博算命界面预览](/public/image.png)
 
-## Technologies Used
+## ✨ 功能特点
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- 🔮 多维度运势分析
+  - 爱情运势
+  - 事业运势
+  - 财富运势
+  - 健康运势
+  - 综合运势
+- 🤖 AI 驱动的智能分析
+- 🎨 现代简约的用户界面
+- 📱 响应式设计，支持多端访问
+- 🔒 安全的 API 密钥管理
 
-## How to Use
+## 🛠️ 技术栈
 
-### Use the template with create-next-app
+- **前端框架**: Next.js 15.0
+- **UI 组件**: HeroUI 组件库
+- **样式方案**: Tailwind CSS
+- **动画效果**: Framer Motion
+- **AI 集成**: OpenRouter AI
+- **表单处理**: React Hook Form
+- **类型检查**: TypeScript
+- **代码规范**: ESLint + Prettier
 
-To create a new project based on this template using `create-next-app`, run the following command:
+## 🚀 快速开始
 
+1. 克隆项目
 ```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
+git clone [repository-url]
+cd cyber-fortune-telling
 ```
 
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
+2. 安装依赖
 ```bash
 npm install
+# 或
+pnpm install
 ```
 
-### Run the development server
+3. 配置环境变量
+```bash
+cp .env.example .env.local
+```
+编辑 `.env.local` 文件，添加必要的环境变量：
+- `OPENROUTER_API_KEY`（可选）
 
+4. 启动开发服务器
 ```bash
 npm run dev
+# 或
+pnpm dev
 ```
 
-### Setup pnpm (optional)
+5. 访问应用
+打开浏览器访问 [http://localhost:3000](http://localhost:3000)
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+## 📝 使用说明
 
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
+1. 输入个人信息（姓名、出生日期）
+2. 选择想要了解的运势类型
+3. 描述具体问题（可选）
+4. 点击"开始算命"获取AI分析结果
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+## 🤝 贡献指南
 
-## License
+欢迎提交 Issue 和 Pull Request 来帮助改进项目。
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+## 📄 许可证（heroui）
+
+本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
