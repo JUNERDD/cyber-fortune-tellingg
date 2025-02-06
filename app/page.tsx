@@ -11,6 +11,7 @@ import { Spinner } from "@heroui/spinner";
 import { Form } from "@heroui/form";
 import { DatePicker } from "@heroui/date-picker";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 // 算命类型选项
 const FORTUNE_TYPES = [
@@ -53,17 +54,32 @@ export default function CyberFortune() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData);
 
-    setApiKey(data.apiKey as string);
+    if (typeof data.apiKey === "string") {
+      setApiKey(data.apiKey);
+    }
 
-    const prompt = `根据以下信息进行${FORTUNE_TYPES.find((t) => t.value === data.fortuneType)?.label}算命：
+    const prompt = `根据用户提供的个人信息和具体问题，进行${FORTUNE_TYPES.find((t) => t.value === data.fortuneType)?.label}分析：
+
+    【用户信息】
     姓名：${data.name}
     出生日期：${data.birthDate}
-    问题：${data.question}
-    请给出详细的算命结果和建议，包括：
-    1. 当前运势分析
-    2. 未来趋势预测
-    3. 具体建议
-    4. 注意事项`;
+    当前提问时间：${new Date().toLocaleString()}
+    
+    【咨询问题】
+    ${data.question}
+    
+    请严格按照以下结构撰写算命报告：
+    1. 问题解读：首先解析用户提出的问题背景和核心关切
+    2. 当前运势：结合命理要素分析当前状况
+    3. 未来预测：预测未来三个月的发展趋势
+    4. 专业建议：提供3-5条具体可行的建议
+    5. 特别提醒：指出需要特别注意的事项
+    
+    要求：
+    - 保持专业但亲切的语气
+    - 适当使用命理学专业术语但需解释其含义
+    - 针对「${data.question}」进行重点分析
+    - 结论需包含可操作的解决方案`;
 
     setPrompt(prompt);
 
@@ -152,11 +168,11 @@ export default function CyberFortune() {
                 ))}
               </Select>
               <Textarea
-                description="请尽量详细描述你的问题（10-200字）"
+                description="请尽量详细描述你的问题（5-200字）"
                 isDisabled={isSubmitting || isLoading}
-                label="你的问题"
+                label="你的问题（可选）"
                 maxLength={200}
-                minLength={10}
+                minLength={5}
                 name="question"
                 placeholder="请输入你想问的问题"
                 rows={3}
@@ -210,11 +226,7 @@ export default function CyberFortune() {
                     发生了错误：{error}
                   </p>
                 ) : completion.length > 0 ? (
-                  completion.split("\n").map((line: string, i: number) => (
-                    <p key={i} className="mb-2">
-                      {line}
-                    </p>
-                  ))
+                  <ReactMarkdown>{completion}</ReactMarkdown>
                 ) : (
                   <div className="flex items-center gap-2">
                     <Spinner color="white" size="sm" />

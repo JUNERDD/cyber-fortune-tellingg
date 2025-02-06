@@ -4,7 +4,7 @@ import { streamText } from "ai";
 export async function POST(req: Request) {
   const { prompt } = await req.json();
   const apiKey =
-    req.headers.get("authorization")?.replace("Bearer ", "") ||
+    req.headers.get("authorization")?.replace("Bearer", "").trim() ||
     process.env.OPENROUTER_API_KEY ||
     "";
 
@@ -18,6 +18,7 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model: openrouter("deepseek/deepseek-chat"),
+    system: "你是一个算命大师。返回给我的消息需要用 markdown 进行格式化。",
     prompt,
   });
 
