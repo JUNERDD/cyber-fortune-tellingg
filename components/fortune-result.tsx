@@ -22,7 +22,7 @@ const FortuneResult = memo(function FortuneResult({
   return (
     <Card className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">算命结果</h2>
+        <h2 className="text-lg md:text-xl font-bold">算命结果</h2>
         <div className="flex items-center gap-2">
           {completion.length > 0 && isLoading && (
             <Button variant="flat" onPress={onStop}>
