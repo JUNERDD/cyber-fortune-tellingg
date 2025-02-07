@@ -1,11 +1,6 @@
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { streamText } from "ai";
 
-/**
- * 最大响应时间
- */
-export const maxDuration = 6000;
-
 export async function POST(req: Request) {
   const { prompt } = await req.json();
   const apiKey =
