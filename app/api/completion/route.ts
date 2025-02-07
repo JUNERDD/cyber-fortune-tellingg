@@ -1,6 +1,8 @@
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { streamText } from "ai";
 
+export const runtime = "edge";
+
 export async function POST(req: Request) {
   const { prompt } = await req.json();
   const apiKey =
