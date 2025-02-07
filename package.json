@@ -28,6 +28,7 @@
     "@heroui/theme": "2.4.5",
     "@hookform/resolvers": "^3.10.0",
     "@openrouter/ai-sdk-provider": "^0.2.0",
+    "@react-aria/i18n": "^3.12.5",
     "@react-aria/ssr": "3.9.7",
     "@react-aria/visually-hidden": "3.8.18",
     "@vercel/analytics": "^1.4.1",
