@@ -19,9 +19,9 @@ export async function POST(req: Request) {
   const result = streamText({
     model: openrouter("deepseek/deepseek-chat"),
     system:
-      "你是一个算命大师。返回给我的消息需要用 markdown 进行格式化。不要在中途停止流式传输，直到完成整个任务。",
+      "你是一个算命大师。返回给我的消息需要用 markdown 进行格式化。不要在中途停止回复，直到完成整个任务。",
     prompt,
-    maxSteps: 100,
+    maxSteps: 20,
   });
 
   return result.toDataStreamResponse();
