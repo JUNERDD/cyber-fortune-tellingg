@@ -1,6 +1,11 @@
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { streamText } from "ai";
 
+/**
+ * 最大响应时间
+ */
+export const maxDuration = 6000;
+
 export async function POST(req: Request) {
   const { prompt } = await req.json();
   const apiKey =
@@ -19,9 +24,9 @@ export async function POST(req: Request) {
   const result = streamText({
     model: openrouter("deepseek/deepseek-chat"),
     system:
-      "你是一个算命大师。返回给我的消息需要用 markdown 进行格式化。不要在中途停止回复，直到完成整个任务。",
+      "你是一个算命大师。返回给我的消息需要用 markdown 进行格式化，不要在中途停止，直到完成整个任务。",
     prompt,
-    maxSteps: 20,
+    maxSteps: 10,
   });
 
   return result.toDataStreamResponse();
