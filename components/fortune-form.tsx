@@ -55,6 +55,7 @@ const FortuneForm = memo(function FortuneForm({
             isRequired
             description="请选择你的农历出生日期"
             granularity="second"
+            hourCycle={24}
             isDisabled={isSubmitting || isLoading}
             label="出生日期"
             name="birthDate"
