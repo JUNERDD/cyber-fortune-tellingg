@@ -42,7 +42,7 @@ const FortuneResult = memo(function FortuneResult({
             <ReactMarkdown>{completion}</ReactMarkdown>
           ) : (
             <div className="flex items-center gap-2">
-              <Spinner color="white" size="sm" />
+              <Spinner color="current" size="sm" />
               正在算命中...
             </div>
           )}
